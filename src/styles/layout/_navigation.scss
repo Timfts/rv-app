@@ -1,0 +1,76 @@
+.navigation {
+  //background-color:$c-main-grey;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 50px 0;
+
+  @include layoutPadding;
+  &__brand-container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  &__brand {
+    width: 132px;
+  }
+
+  &__nav {
+    display: flex;
+    width: 45%;
+    justify-content: space-between;
+  }
+
+  &__nav-link {
+    display: inline-block;
+    color: rgba($c-main-blue, 0.57);
+    transition: all 0.2s;
+    position: relative;
+    letter-spacing: 1px;
+
+    &--active {
+      color: $c-main-blue;
+    }
+
+
+    &::before,
+    &::after {
+      content: "";
+      position: absolute;
+      width: 0%;
+      height: 2px;
+      bottom: 1px;
+      background: $c-main-red;
+
+    }
+
+    &::before {
+      left: 0;
+    }
+    &::after {
+      right: 0;
+      background: $c-main-red;
+      transition: width 0.8s cubic-bezier(0.22, 0.61, 0.36, 1);
+    }
+
+    &:hover::before {
+      background: $c-main-red;
+      width: 80%;
+      transition: width 0.5s cubic-bezier(0.22, 0.61, 0.36, 1);
+    }
+
+    &:hover::after {
+      background: transparent;
+      width: 80%;
+      transition: 0s;
+    }
+
+    &--active::before {
+      width: 80%;
+    }
+    &--active:hover::after {
+        width:0%;
+    }
+  }
+}
