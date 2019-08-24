@@ -1,0 +1,39 @@
+@font-face {
+  font-family: "Saira Condensed";
+  src: url($font-light+"SairaCondensed-Light.eot");
+  src: url($font-light+"SairaCondensed-Light.eot#iefix")
+      format("embedded-opentype"),
+    url($font-light+"SairaCondensed-Light.woff2") format("woff2"),
+    url($font-light+"SairaCondensed-Light.woff") format("woff"),
+    url($font-light+"SairaCondensed-Light.ttf") format("truetype");
+  font-weight: 300;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "Saira Condensed";
+  src: url($font-regular+"SairaCondensed-Regular.eot");
+  src: url($font-regular+"SairaCondensed-Regular.eot#iefix")
+      format("embedded-opentype"),
+    url($font-regular+"SairaCondensed-Regular.woff2") format("woff2"),
+    url($font-regular+"SairaCondensed-Regular.woff") format("woff"),
+    url($font-regular+"SairaCondensed-Regular.ttf") format("truetype");
+  font-weight: 400;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "Saira Condensed";
+  src: url($font-medium+"SairaCondensed-Medium.eot");
+  src: url($font-medium+"SairaCondensed-Medium.eot#iefix")
+      format("embedded-opentype"),
+    url($font-medium+"SairaCondensed-Medium.woff2") format("woff2"),
+    url($font-medium+"SairaCondensed-Medium.woff") format("woff"),
+    url($font-medium+"SairaCondensed-Medium.ttf") format("truetype");
+  font-weight: 500;
+  font-style: normal;
+}
+
+html {
+  font-family: "Saira Condensed", sans-serif;
+}
