@@ -6,20 +6,47 @@
   padding: 50px 0;
 
   @include layoutPadding;
+  @include respond(tab-port) {
+    padding-top: 30px;
+    padding-bottom: 30px;
+    overflow-x: scroll;
+    -webkit-overflow-scrolling: touch;
+    -ms-overflow-style: -ms-autohiding-scrollbar;
+
+    &::-webkit-scrollbar {
+      display: none;
+    }
+
+    &::after {
+      content:"";
+      position:absolute;
+      background:linear-gradient(to right, rgba($c-white, 0), $c-white);
+      display:block;
+      right:0;
+      top:0;
+      height:80px;
+      width:40px;
+      z-index:1;
+    }
+  }
+
   &__brand-container {
     display: flex;
     align-items: center;
     justify-content: center;
+    margin-right: 100px;
   }
 
   &__brand {
     width: 132px;
+
+    @include respond(phone){
+      width:140px;
+    }
   }
 
   &__nav {
     display: flex;
-    width: 45%;
-    justify-content: space-between;
   }
 
   &__nav-link {
@@ -28,11 +55,21 @@
     transition: all 0.2s;
     position: relative;
     letter-spacing: 1px;
+    white-space: nowrap;
 
     &--active {
       color: $c-main-blue;
     }
 
+    &:not(:last-of-type) {
+      margin-right: 50px;
+    }
+
+    @include respond (tab-port){
+      &:last-of-type{
+        margin-right:55px;
+      }
+    }
 
     &::before,
     &::after {
@@ -42,7 +79,6 @@
       height: 2px;
       bottom: 1px;
       background: $c-main-red;
-
     }
 
     &::before {
@@ -70,7 +106,7 @@
       width: 80%;
     }
     &--active:hover::after {
-        width:0%;
+      width: 0%;
     }
   }
 }
