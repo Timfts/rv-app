@@ -1,5 +1,5 @@
 import React from "react";
-import CarBuilder from "../components/CarBuilder";
+import CarBuilder from "../components/CarBuilder/CarBuilder";
 import { Switch, Route } from "react-router-dom";
 
 const CarPresentation = () => {
