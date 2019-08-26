@@ -1,0 +1,86 @@
+.modelR-presentation {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+    @include layoutPadding;
+
+    &__text {
+        align-self: flex-start;
+    }
+
+    &__span{
+        font-size:30px;
+        color:$c-main-red;
+        font-weight: 500;
+        letter-spacing: 5px;
+
+        @include respond(tab-land){
+            font-size:27px;
+        }
+
+        @include respond(tab-port){
+            font-size:23.5px;
+        }
+
+        @include respond(phone){
+            font-size:20px;
+        }
+    }
+
+    &__logo,
+    &__logo-r{
+        text-transform: uppercase;
+    }
+
+    &__logo {
+        font-size: 150px;
+        font-weight: 300;
+        color:$c-main-blue;
+        letter-spacing: 1px;
+        line-height: 1;
+
+        @include respond(tab-land){
+            font-size:120px;
+        }
+
+        @include respond(tab-port){
+            font-size:110px;
+        }
+
+        @include respond(phone){
+            font-size:90px;
+        }
+    }
+
+    &__logo-r {
+        font-weight:500;
+        color:$c-main-red;
+        margin-left:40px;
+        display:inline-block;
+    }
+
+    &__car-image {
+        width:673px;
+        display:block;
+        margin-top:-70px;
+
+        @include respond(tab-land){
+            width:570px;
+        }
+
+        @include respond(tab-port){
+            width:470px;
+        }
+
+        @include respond(phone){
+            width:368px;
+        }
+    }
+
+    &__button-container {
+        margin-top:-20px;
+    }
+    
+}

@@ -14,16 +14,18 @@ import NotFound from "../../pages/404";
 const Layout = () => {
   return (
     <Router>
-      <Navigation />
-      <Switch>
-        <Route exact path="/" component={() => <Redirect to="/modelR" />} />
-        <Route path="/modelR" component={ModelR} />
-        <Route path="/modelIQ" component={CommingSoon} />
-        <Route path="/modelMobi" component={CommingSoon} />
-        <Route path="/modelCharlie" component={CommingSoon} />
-        <Route path="/modelItaly" component={CommingSoon} />
-        <Route component={NotFound} />
-      </Switch>
+      <div className="layout">
+        <Navigation />
+        <Switch>
+          <Route exact path="/" component={() => <Redirect to="/modelR" />} />
+          <Route path="/modelR" component={ModelR} />
+          <Route path="/modelIQ" component={CommingSoon} />
+          <Route path="/modelMobi" component={CommingSoon} />
+          <Route path="/modelCharlie" component={CommingSoon} />
+          <Route path="/modelItaly" component={CommingSoon} />
+          <Route component={NotFound} />
+        </Switch>
+      </div>
     </Router>
   );
 };
