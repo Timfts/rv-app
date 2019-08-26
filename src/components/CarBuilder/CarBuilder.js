@@ -9,34 +9,41 @@ import {
 import BuilderProvider from "./context/BuilderProvider";
 import { BuilderContext } from "./context/builderContext";
 
+class CarBuilderInner extends React.Component {
+  componentDidMount() {
+    this.getData();
+  }
 
-const CarBuilderInner = () => {
-  const context = useContext(BuilderContext);
+  async getData(){
+    this.context.showLoading();
+    await this.context.getCarData();
+    this.context.hideLoading();
+  }
 
-  useEffect(()=> {
-    context.getCarData();
-  })
-
-  return (
-    <div className="teste">
-{/*         {(() => {
-          switch (currentStep) {
-            case 1:
-              return <EngineSection />;
-            case 2:
-              return <ColorSection />;
-            case 3:
-              return <WheelsSection />;
-            case 4:
-              return <BuilderFinish />;
-            default:
-              return null;
-          }
-        })()} */}
+  render() {
+    return (
+      <div className="teste">
+        {this.context.loading ? <p>loading</p> : ''}
+        {/*         {(() => {
+                switch (currentStep) {
+                  case 1:
+                    return <EngineSection />;
+                  case 2:
+                    return <ColorSection />;
+                  case 3:
+                    return <WheelsSection />;
+                  case 4:
+                    return <BuilderFinish />;
+                  default:
+                    return null;
+                }
+              })()} */}
         <BuilderFooter />
-    </div>
-  );
-};
+      </div>
+    );
+  }
+}
+CarBuilderInner.contextType = BuilderContext;
 
 const CarBuilder = () => (
   <BuilderProvider>

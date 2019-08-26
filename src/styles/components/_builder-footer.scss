@@ -1,0 +1,87 @@
+.builder-footer {
+    width:100%;
+    position:fixed;
+    bottom: 0;
+    left:0;
+    display:flex;
+    align-items: center;
+    justify-content: space-between;
+    padding-top:15px;
+    padding-bottom:15px;
+    box-shadow: 0px -8px 47px 0px rgba(0,0,0,0.07);
+    @include layoutPadding;
+
+
+    &__price {
+
+    }
+
+    &__price-label {
+        font-weight:500;
+        color:$c-grey-one;
+        letter-spacing: 2px;
+
+        @include respond(tab-port){
+            font-size:14px;
+        }
+    }
+
+    &__price-value {
+        font-size:32px;
+        font-weight:300;
+        color:$c-main-red;
+        line-height: 1;
+
+        @include respond(tab-port){
+            font-size:28px;
+        }
+    }
+
+    &__choices {
+        flex:1;
+        padding:0 90px;
+        margin-right:150px;
+        & > * {
+            display:inline-block;
+        }
+        display:flex;
+        align-items: center;
+        justify-content: space-between;
+        @include respond(tab-port){
+            display:none;
+        }
+    }
+
+    &__car-choice {
+        color: $c-main-blue;
+        letter-spacing: 1px;
+    }
+
+    &__engine-choice {
+        font-size:18px;
+        font-weight: 500;
+        color: $c-main-blue;
+
+        &--highlight {
+            color:$c-main-red;
+        }
+    }
+
+    &__color-choice {
+        width:22px;
+    }
+
+    &__color-choice-image {
+        width:100%;
+    }
+
+    &__wheel-choice {
+        width:50px;
+    }
+
+    &__wheel-choice-image {
+        width:100%;
+    }
+
+
+}

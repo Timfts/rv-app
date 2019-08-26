@@ -1,4 +1,4 @@
-.arrow-button-one {
+.button {
   background-color: transparent;
   border: none;
   cursor: pointer;
@@ -11,6 +11,11 @@
   & > * {
     display: inline-block;
   }
+}
+
+
+
+.arrow-button-one {
 
   &__text {
     white-space: nowrap;

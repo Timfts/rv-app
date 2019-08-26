@@ -1,9 +1,30 @@
 .info-block {
+  border-bottom:3px solid $c-main-red;
+  &__value,
+  &__desc {
+    display: block;
+  }
+
   &__value {
+    color: $c-main-red;
+    font-weight: 500;
+    font-size: 42px;
+    line-height: 1;
+
+    @include respond(tab-port){
+      font-size:32px;
+    }
   }
   &__measure {
+    font-size: 15px;
   }
 
   &__desc {
+    font-size:18px;
+    color:$c-main-blue;
+    font-weight:300;
+    @include respond (tab-port){
+      font-szie: 14px;
+    }
   }
 }

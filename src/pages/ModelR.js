@@ -4,7 +4,7 @@ import { Switch, Route } from "react-router-dom";
 import carImage from "../images/car-home.png";
 import { ArrowButtonOne } from "../components/common/Button";
 
-const CarPresentation = () => {
+const CarPresentation = ({history}) => {
   const carInfos = [
     {
       value: "2.5",
@@ -32,8 +32,8 @@ const CarPresentation = () => {
           </h1>
         </div>
         <img className="modelR-presentation__car-image" src={carImage} />
-        <div className="modelR-presentantion__button-container">
-          <ArrowButtonOne text="begin" />
+        <div className="modelR-presentation__button-container">
+          <ArrowButtonOne text="begin" click={() => history.push('/modelR/builder') } />
         </div>
       </div>
       <div className="modelR-info">

@@ -3,11 +3,13 @@
     flex-direction: column;
     justify-content: center;
     align-items: center;
+    flex:1;
 
     @include layoutPadding;
 
     &__text {
         align-self: flex-start;
+        white-space: nowrap;
     }
 
     &__span{
@@ -72,6 +74,7 @@
 
         @include respond(tab-port){
             width:470px;
+            margin-top:-40px;
         }
 
         @include respond(phone){
@@ -80,7 +83,7 @@
     }
 
     &__button-container {
-        margin-top:-20px;
+        margin-top:-2.5vh;
     }
     
 }
