@@ -1,0 +1,15 @@
+.engine-section {
+    @include layoutPadding;
+    display:flex;
+
+    &__image-container {
+        flex:1;
+    }
+
+    &__image{
+        height:80vh;
+    }
+    &__engine-selector-container {
+        flex:1;
+    }
+}

@@ -6,8 +6,11 @@ import WheelOne from "../../images/wheels/wheel-one.png";
 import { displayMoney } from "../../helpers";
 
 const BuilderFooter = () => {
-  const { total, step } = useContext(BuilderContext);
-  if (step < 4) {
+  const { total, step, loading, selectedEngine, selectedColor, selectedWheels } = useContext(
+    BuilderContext
+  );
+
+  if (step < 4 && !loading) {
     return (
       <footer className="builder-footer">
         <div className="builder-footer__price">
@@ -22,23 +25,46 @@ const BuilderFooter = () => {
         </div>
         <div className="builder-footer__choices">
           <span className="builder-footer__car-choice">Model R</span>
-          <span className="builder-footer__engine-choice">
-            75{" "}
-            <span className="builder-footer__engine-choice--highlight">P</span>
-          </span>
-          <div className="builder-footer__color-choice">
-            <img
-              className="builder-footer__color-choice-image"
-              src={PickerRed}
-            />
-          </div>
-          <div className="builder-footer__wheel-choice">
-            <img
-              className="builder-footer__wheel-choice-image"
-              src={WheelOne}
-            />
-          </div>
+          {selectedEngine ? (
+            <span
+              className={`builder-footer__engine-choice ${
+                selectedEngine.visited ? "" : "hide"
+              }`}
+            >
+              {`${selectedEngine.model.kwh} `}
+              <span className="builder-footer__engine-choice--highlight">
+                {selectedEngine.model.type}
+              </span>
+            </span>
+          ) : (
+            ""
+          )}
+          {selectedColor ? (
+            <div
+              className={`builder-footer__color-choice ${
+                selectedColor.visited ? "" : "hide"
+              }`}
+            >
+              <img
+                className="builder-footer__color-choice-image"
+                src={selectedColor.model.picker}
+              />
+            </div>
+          ) : (
+            ""
+          )}
+          {selectedWheels ? (
+            <div className={`builder-footer__wheel-choice ${ selectedWheels.visited ? "" : "hide"}`}>
+              <img
+                className="builder-footer__wheel-choice-image"
+                src={selectedWheels.model.image}
+              />
+            </div>
+          ) : (
+            ""
+          )}
         </div>
+
         <div className="builder-footer__next">
           <ArrowButtonTwo text="next" />
         </div>

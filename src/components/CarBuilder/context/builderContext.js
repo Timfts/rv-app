@@ -7,13 +7,11 @@ export const initialState = {
   wheels: null,
   initialPrice: null,
   step: 1,
-  selected: {
-    engine: {model:null, selected:false},
-    color: {model:null, selected:false},
-    wheels: {model:null, selected:false}
-  },
   finished: null,
-  total: null
+  total: null,
+  selectedEngine: null,
+  selectedColor:null,
+  selectedWheels: null
 };
 
 export const BuilderContext = createContext(initialState);
@@ -39,13 +37,15 @@ export function builderReducer(state, action) {
         engine,
         color,
         wheels,
-        wheels: wheels,
-        selected:{
-          engine:{model: engine.items[0], selected: false},
-          wheels:{model: wheels.items[0], selected: false},
-          color:{model: color.items[0], selected: false}
-        }
-
+        selectedEngine: { model: engine.items[0], visited:false},
+        selectedColor: { model: color.items[0], visited:false},
+        selectedWheels: {model: wheels.items[0], visited: false}
+      }
+    case "VISITED_ENGINE":
+        console.log(state.selectedEngine);
+      return {
+        ...state,
+        selectedEngine: {...state.selectedEngine, visited: true}
       }
     default:
       return state;

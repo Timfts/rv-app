@@ -3,6 +3,7 @@ import { BuilderContext, builderReducer, initialState } from "./builderContext";
 import { fetchApi } from "../../../core/apiService";
 import { colorArray } from "../../../core/colors";
 import { engineArray } from "../../../core/engines";
+import { wheelsArray } from '../../../core/wheels';
 
 const BuilderProvider = props => {
   const [state, dispatch] = useReducer(builderReducer, initialState);
@@ -21,40 +22,49 @@ const BuilderProvider = props => {
 
   //recive the engines, colors, wheels and relates to the images
   // the connection could be an id, label or etc
-  function mapItemImages(baseElement, connection, imagesArray){
+  function mapItemImages(baseElement, connection, imagesArray) {
     const originalItems = baseElement.items;
-    const newItemsList = originalItems.map((item,index) => {
+    const newItemsList = originalItems.map((item, index) => {
       const connectionItem = item[connection];
-      const imageData = imagesArray.filter(imageItem => imageItem[connection] === connectionItem)[0];
-      return {...item, ...imageData}
+      const imageData = imagesArray.filter(
+        imageItem => imageItem[connection] === connectionItem
+      )[0];
+      return { ...item, ...imageData };
     });
-    return{...baseElement, items: newItemsList};
+    return { ...baseElement, items: newItemsList };
   }
 
   async function getCarData() {
     const response = await fetchApi();
     const { color, price, wheels, engine } = response.data;
-    const colors = mapItemImages(color, 'label', colorArray);
-    const engines = mapItemImages(engine, 'id', engineArray);
-
-    console.log(response);
+    const colorsI = mapItemImages(color, "label", colorArray);
+    const enginesI = mapItemImages(engine, "id", engineArray);
+    const wheelsI = mapItemImages(wheels, "id", wheelsArray);
 
     dispatch({
       type: "ASSIGN_DATA",
       payload: {
-        engine: engines,
-        color: colors,
-        wheels,
+        engine: enginesI,
+        color: colorsI,
+        wheels:wheelsI,
         price
       }
     });
+  }
 
-    
+  function visited(item) {
+    console.log(item);
+    switch (item) {
+      case "engine":
+        dispatch({
+          type: "VISITED_ENGINE"
+        });
+    }
   }
 
   return (
     <BuilderContext.Provider
-      value={{ ...state, showLoading, hideLoading, getCarData }}
+      value={{ ...state, showLoading, hideLoading, getCarData, visited }}
       {...props}
     />
   );

@@ -14,7 +14,7 @@ class CarBuilderInner extends React.Component {
     this.getData();
   }
 
-  async getData(){
+  async getData() {
     this.context.showLoading();
     await this.context.getCarData();
     this.context.hideLoading();
@@ -23,21 +23,23 @@ class CarBuilderInner extends React.Component {
   render() {
     return (
       <div className="teste">
-        {this.context.loading ? <p>loading</p> : ''}
-        {/*         {(() => {
-                switch (currentStep) {
-                  case 1:
-                    return <EngineSection />;
-                  case 2:
-                    return <ColorSection />;
-                  case 3:
-                    return <WheelsSection />;
-                  case 4:
-                    return <BuilderFinish />;
-                  default:
-                    return null;
-                }
-              })()} */}
+        {this.context.loading ? <p>loading</p> : ""}
+        {this.context.initialPrice
+          ? (() => {
+              switch (this.context.step) {
+                case 1:
+                  return <EngineSection />;
+                case 2:
+                  return <ColorSection />;
+                case 3:
+                  return <WheelsSection />;
+                case 4:
+                  return <BuilderFinish />;
+                default:
+                  return null;
+              }
+            })()
+          : ""}
         <BuilderFooter />
       </div>
     );
