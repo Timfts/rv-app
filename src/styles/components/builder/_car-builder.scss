@@ -1,0 +1,43 @@
+.car-builder {
+  @include layoutPadding;
+  &__section {
+    //footer size
+    padding-bottom: 80px;
+    height: 85vh;
+    overflow: hidden;
+    display:flex;
+    @include respond(tab-port){
+    }
+    &--engine {
+        display: flex;
+    }
+    &--color {
+    }
+
+    &--wheels {
+    }
+
+    &--end {
+    }
+  }
+
+  &__engine-image-container {
+    width: 50%;
+    height:100%;
+    padding:20px;
+    padding-top:0;
+    position:relative;
+  }
+
+  &__engine-image {
+    height:100%;
+    position:absolute;
+    top:50%;
+    left:50%;
+    transform: translate(-80%, -55%);
+  }
+
+  &__engine-selector-container {
+      width:50%;
+  }
+}

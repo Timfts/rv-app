@@ -16,12 +16,6 @@ body {
     position:relative;
 }
 
-.layout {
-    display:flex;
-    flex-direction: column;
-    height: 100vh;
-}
-
 .hide {
     transition:all.4s;
     opacity:0;

@@ -22,7 +22,7 @@ class CarBuilderInner extends React.Component {
 
   render() {
     return (
-      <div className="teste">
+      <div className="car-builder">
         {this.context.loading ? <p>loading</p> : ""}
         {this.context.initialPrice
           ? (() => {

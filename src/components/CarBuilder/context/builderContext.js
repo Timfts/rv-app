@@ -2,7 +2,7 @@ import React, { createContext } from "react";
 
 export const initialState = {
   loading: null,
-  engine: null,
+  engine: {items:[]},
   color: null,
   wheels: null,
   initialPrice: null,

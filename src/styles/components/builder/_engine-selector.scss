@@ -1,0 +1,41 @@
+.engine-selector {
+  font-size: 22px;
+  margin-top: 20px;
+
+  @media(max-height: 700px){
+      font-size:20px;
+  }
+
+  &__item {
+    display: grid;
+    justify-content: space-between;
+    grid-template-columns: 1fr 1fr 2fr;
+    background-color: $c-light-blue;
+    padding: 3% 40px;
+    color: $c-main-grey;
+    letter-spacing: 2px;
+    cursor: pointer;
+
+    &:not(:last-of-type) {
+      margin-bottom: 10%;
+    }
+
+    & > * {
+      display: flex;
+      align-items: center;
+    }
+  }
+
+  &__model-name {
+    font-size: 34px;
+    @media(max-height: 700px){
+        font-size:30px;
+    }
+  }
+
+  &__model-kwh {
+  }
+
+  &__model-miles {
+  }
+}

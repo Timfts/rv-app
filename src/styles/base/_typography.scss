@@ -42,3 +42,25 @@ a{
   color:  $c-main-red;
   text-decoration: none;
 }
+
+h1,
+h2,
+h3,h4,h5,h6 {
+  font-weight: 300;
+  color:$c-main-blue;
+}
+
+.title{
+  font-size:45px;
+
+
+
+
+  @include respond(tab-port) {
+    font-size:29px;
+  }
+
+  @include respond(phone) {
+    font-size:22px;
+  } 
+}

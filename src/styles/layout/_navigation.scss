@@ -1,14 +1,14 @@
 .navigation {
-  //background-color:$c-main-grey;
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 50px 0 30px 0;
+  overflow:hidden;
+  height:15vh;
 
   @include layoutPadding;
   @include respond(tab-port) {
-    padding-top: 30px;
-    padding-bottom: 30px;
+    height:10vh;
+    padding-top:20px;
     overflow-x: scroll;
     -webkit-overflow-scrolling: touch;
     -ms-overflow-style: -ms-autohiding-scrollbar;

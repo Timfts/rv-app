@@ -9,9 +9,12 @@
 @import './components/button';
 @import './components/info-block';
 @import './components/modelR-presentation';
-@import './components/builder-footer';
+
+@import './components/builder/car-builder';
+@import './components/builder/builder-footer';
+@import './components/builder/engine-selector';
 
 @import "./layout/navigation";
 
 @import "./pages/modelR";
-@import "./pages/builder";
+/* @import "./pages/builder"; */

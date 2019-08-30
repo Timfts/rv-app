@@ -1,13 +1,12 @@
 .builder-footer {
     width:100%;
-    position:fixed;
+    position:absolute;
     bottom: 0;
     left:0;
+    height:80px;
     display:flex;
     align-items: center;
     justify-content: space-between;
-    padding-top:15px;
-    padding-bottom:15px;
     box-shadow: 0px -8px 47px 0px rgba(0,0,0,0.07);
     background-color:$c-white;
     @include layoutPadding;
