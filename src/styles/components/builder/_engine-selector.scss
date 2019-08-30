@@ -1,41 +1,109 @@
 .engine-selector {
   font-size: 22px;
-  margin-top: 20px;
+  margin-top: 40px;
 
-  @media(max-height: 700px){
-      font-size:20px;
+  @include respond(wider) {
+    font-size: 18px;
+    margin-top: 20px;
   }
 
-  &__item {
-    display: grid;
-    justify-content: space-between;
-    grid-template-columns: 1fr 1fr 2fr;
-    background-color: $c-light-blue;
-    padding: 3% 40px;
-    color: $c-main-grey;
-    letter-spacing: 2px;
-    cursor: pointer;
+  @include respond(tab-port) {
+    margin-top: 0;
+    font-size: 16px;
+  }
 
-    &:not(:last-of-type) {
-      margin-bottom: 10%;
-    }
+  @media(max-width:370px){
+    font-size: 14px;
+  }
+}
 
-    & > * {
-      display: flex;
-      align-items: center;
+.engine-item {
+  display: grid;
+  justify-content: space-between;
+  grid-template-columns: 1fr 1fr 2fr;
+  background-color: $c-light-blue;
+  padding: 17px 40px;
+  color: $c-main-grey;
+  letter-spacing: 2px;
+  word-wrap: none;
+  cursor: pointer;
+  position:relative;
+
+  &:not(:last-of-type) {
+    margin-bottom: 55px;
+
+    @include respond(wider) {
+      margin-bottom: 30px;
     }
+    @include respond(tabo-port){
+      margin-bottom:25px;
+    }
+  }
+
+  & > * {
+    display: flex;
+    align-items: center;
+  }
+
+  @include respond(tab-port) {
+    padding: 17px 10px;
+  }
+
+  @include respond(phone){
+    padding:15px 8px;
   }
 
   &__model-name {
     font-size: 34px;
-    @media(max-height: 700px){
-        font-size:30px;
+
+    & span {
+      display:inline-block;
+      margin-left:5px;
+      font-weight:500;
+    }
+    @include respond(wider) {
+      font-size: 30px;
+    }
+
+    @include respond(tab-port) {
+      font-size: 22px;
     }
   }
 
-  &__model-kwh {
+  &__model-kwh span, &__model-miles span {
+    display:inline-block;
+    margin-right:5px;
+    font-weight: 500;
   }
 
-  &__model-miles {
+
+
+  &--selected {
+    color: $c-grey-one;
+
+    & .engine-item__model-name {
+      & span {
+        color:$c-main-red;
+      }
+    }
+
+    &::after {
+      content:"";
+      background-color:$c-main-red;
+      border-radius:100%;
+      position:absolute;
+      display:block;
+      top:50%;
+      right:8%;
+      width:20px;
+      height:20px;
+      transform: translateY(-50%);
+
+      @include respond(tab-port){
+        width:15px;
+        height:15px;
+        right:5%;
+      }
+    }
   }
 }

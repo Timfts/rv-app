@@ -54,6 +54,9 @@ h3,h4,h5,h6 {
   font-size:45px;
 
 
+  @media(max-height:760px){
+    font-size:35px;
+  }
 
 
   @include respond(tab-port) {

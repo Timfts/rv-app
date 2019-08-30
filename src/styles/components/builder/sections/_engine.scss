@@ -1,0 +1,61 @@
+.engine-section {
+  min-height: 80vh;
+  display:flex;
+  position:relative;
+
+  @include respond(tab-port){
+    flex-direction:column;
+    padding-top:50px;
+  }
+
+  @include respond(phone){
+  
+  }
+
+  &__title {
+    @include respond(tab-port){
+      position:absolute;
+      top:0;
+    }
+  }
+
+  &__image-container,
+  &__selector-container {
+    flex:1;
+    @include respond(tab-port){
+      flex:0 0 auto;
+    }
+  }
+
+  &__image-container {
+    position: relative;
+    @include respond(tab-port) {
+      padding: 0;
+      height:300px;
+    }
+    @include respond(phone){
+      height:200px;
+    }
+  }
+
+  &__image {
+    height: 90%;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-80%, -55%);
+
+    @include respond(tab-port) {
+      height: 90vw;
+      transform: translate(-50%, -50%) rotate(-90deg);
+    }
+  }
+
+  &__selector-container {
+    padding-top:40px;
+
+    @include respond(tab-port){
+      padding-top:0;
+    }
+  }
+}

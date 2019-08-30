@@ -28,8 +28,8 @@
     }
   }
 
-  @if $breakpoint == mac-pro {
-    @media (min-height: 56.25em) {
+  @if $breakpoint == wider {
+    @media (max-height: 750px) {
       @content;
     }
   }

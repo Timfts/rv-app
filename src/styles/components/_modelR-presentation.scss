@@ -6,6 +6,10 @@
     flex:1;
 
     @include layoutPadding;
+    @include respond(tab-port){
+        padding:0;
+        overflow: hidden;
+    }
 
     &__text {
         align-self: flex-start;
@@ -54,6 +58,10 @@
         @include respond(phone){
             font-size:90px;
         }
+
+        @media(max-width:380px){
+            font-size:70px;
+        }
     }
 
     &__logo-r {
@@ -61,6 +69,10 @@
         color:$c-main-red;
         margin-left:40px;
         display:inline-block;
+
+        @include respond(tab-port){
+            margin-left:25px;
+        }
     }
 
     &__car-image {
@@ -79,8 +91,13 @@
 
         @include respond(phone){
             width:368px;
+            margin-top:-35px;
         }
-    }
+
+        @media(max-width:380px){
+            width:300px;
+        }
+    }   
 
     &__button-container {
         margin-top:-2.5vh;
