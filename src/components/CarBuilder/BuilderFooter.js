@@ -1,14 +1,18 @@
 import React, { useContext } from "react";
 import { BuilderContext } from "./context/builderContext";
 import { ArrowButtonTwo } from "../common/Button";
-import PickerRed from "../../images/color/picker-red.png";
-import WheelOne from "../../images/wheels/wheel-one.png";
 import { displayMoney } from "../../helpers";
 
 const BuilderFooter = () => {
-  const { total, step, loading, selectedEngine, selectedColor, selectedWheels } = useContext(
-    BuilderContext
-  );
+  const {
+    total,
+    step,
+    loading,
+    selectedEngine,
+    selectedColor,
+    selectedWheels,
+    nextStep
+  } = useContext(BuilderContext);
 
   if (step < 4 && !loading) {
     return (
@@ -54,7 +58,11 @@ const BuilderFooter = () => {
             ""
           )}
           {selectedWheels ? (
-            <div className={`builder-footer__wheel-choice ${ selectedWheels.visited ? "" : "hide"}`}>
+            <div
+              className={`builder-footer__wheel-choice ${
+                selectedWheels.visited ? "" : "hide"
+              }`}
+            >
               <img
                 className="builder-footer__wheel-choice-image"
                 src={selectedWheels.model.image}
@@ -66,7 +74,7 @@ const BuilderFooter = () => {
         </div>
 
         <div className="builder-footer__next">
-          <ArrowButtonTwo text="next" />
+          <ArrowButtonTwo text="next" click={()=> nextStep()} />
         </div>
       </footer>
     );

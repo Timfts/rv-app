@@ -3,7 +3,7 @@ import { BuilderContext, builderReducer, initialState } from "./builderContext";
 import { fetchApi } from "../../../core/apiService";
 import { colorArray } from "../../../core/colors";
 import { engineArray } from "../../../core/engines";
-import { wheelsArray } from '../../../core/wheels';
+import { wheelsArray } from "../../../core/wheels";
 
 const BuilderProvider = props => {
   const [state, dispatch] = useReducer(builderReducer, initialState);
@@ -46,7 +46,7 @@ const BuilderProvider = props => {
       payload: {
         engine: enginesI,
         color: colorsI,
-        wheels:wheelsI,
+        wheels: wheelsI,
         price
       }
     });
@@ -62,9 +62,94 @@ const BuilderProvider = props => {
     }
   }
 
+  function calculateNewPrice(itemType, newItem) {
+    const totalPrice = state.total;
+    const newItemPrice = newItem.price;
+    let currentItemPrice;
+    switch (itemType) {
+      case "engine":
+        currentItemPrice = state.selectedEngine.model.price;
+        break;
+      case "wheels":
+        currentItemPrice = state.selectedWheels.model.price;
+        break;
+      case "color":
+        currentItemPrice = state.selectedColor.model.price;
+        break;
+      default:
+        break;
+    }
+
+    console.log(totalPrice, currentItemPrice, newItemPrice);
+    return totalPrice - currentItemPrice + newItemPrice;
+  }
+
+  function nextStep(){
+    const currentStep = state.step;
+    if(currentStep === 4){
+      dispatch({
+        type: 'RESET_BUILDER'
+      })
+    }
+    dispatch({
+      type: 'NEXT_STEP'
+    })
+  }
+
+  function setItem(itemType, value) {
+    switch (itemType) {
+      case "engine":
+        if (!(value.id === state.selectedEngine.model.id)) {
+          const newPrice = calculateNewPrice("engine", value);
+          dispatch({
+            type: "SET_ENGINE",
+            payload: {
+              engine: value,
+              newPrice
+            }
+          });
+        }
+        break;
+      case "wheels":
+        if (!(value.id === state.selectedWheels.model.id)) {
+          const newPrice = calculateNewPrice("wheels", value);
+          dispatch({
+            type: "SET_WHEELS",
+            payload: {
+              wheels: value,
+              newPrice
+            }
+          });
+        }
+        break;
+      case "color":
+        if (!(value.id === state.selectedColor.model.id)) {
+          const newPrice = calculateNewPrice("color", value);
+          dispatch({
+            type: "SET_COLOR",
+            payload: {
+              color: value,
+              newPrice
+            }
+          });
+        }
+        break;
+    }
+
+    //if current value == state value don't do nothing
+  }
+
   return (
     <BuilderContext.Provider
-      value={{ ...state, showLoading, hideLoading, getCarData, visited }}
+      value={{
+        ...state,
+        showLoading,
+        hideLoading,
+        getCarData,
+        visited,
+        setItem,
+        nextStep
+      }}
       {...props}
     />
   );

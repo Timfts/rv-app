@@ -19,7 +19,7 @@ ArrowButtonOne.propTypes = {
 const ArrowButtonTwo = ({text, direction, click}) => {
   return(
     <button className="button arrow-button-two" onClick={click}>
-      <span className="arrow-button-one__text">{text}</span>
+      <span className="arrow-button-two__text">{text}</span>
       <img src={arrow} alt="arrow" />
     </button>
   )

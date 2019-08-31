@@ -1,0 +1,41 @@
+.color-picker {
+    margin-top:-20%;
+    display:flex;
+    flex-wrap: none;
+    justify-content: space-between;
+    align-items: center;
+    padding-right:60px;
+    height:80px;
+    overflow:hidden;
+
+    @include respond(tab-port){
+        margin-top:0;
+        padding-right:0;
+        padding:50px 10%;
+    }
+
+    &__ball {
+        background-color:$c-light-grey;
+        border-radius: 100%;
+        width:70px;
+        height:70px;
+        display:flex;
+        align-items: center;
+        justify-content: center;
+        cursor:pointer;
+
+        @include respond(wider){
+            width:60px;
+            height:60px;
+        }
+
+        &--selected {
+            background-color:#2E3948;
+        }
+    }
+
+    &__image {
+        width:60%;
+        height:60%;
+    }
+}
