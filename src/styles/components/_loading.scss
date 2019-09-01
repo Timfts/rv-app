@@ -4,7 +4,7 @@
     position: fixed;
     top:0;
     left:0;
-    background-color:rgba($c-white, .8);
+    background-color:$c-white;
     z-index:100;
     display:flex;
     align-items: center;
@@ -15,6 +15,6 @@
         stroke:$c-main-red;
         stroke-dasharray: 900;
         stroke-dashoffset: 900;
-        animation: path .5s ease infinite;
+        animation: path 2s ease infinite;
     }
 }

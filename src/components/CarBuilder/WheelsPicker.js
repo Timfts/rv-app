@@ -1,5 +1,6 @@
 import React from "react";
 import PropTypes from "prop-types";
+import { Img } from "../common/Img";
 
 const WheelsPicker = ({ allWheels, currentWheels, onSelect }) => {
   return (
@@ -16,7 +17,8 @@ const WheelsPicker = ({ allWheels, currentWheels, onSelect }) => {
             }`}
           >
             <div className="wheels-picker__wheel-image-container">
-              <img
+              <Img
+                noLabel
                 className="wheels-picker__wheel-image"
                 src={wheel.image}
                 alt={`wheel model ${wheel.label}`}

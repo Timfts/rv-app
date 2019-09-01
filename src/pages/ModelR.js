@@ -30,7 +30,7 @@ const CarPresentation = ({history}) => {
     {
       !loaded ? <Loading /> : ''
     }
-    <section className="modelR-page" onLoad={() => setLoaded(true)}>
+    <section className="modelR-page">
       <div className="modelR-presentation">
         <div className="modelR-presentation__text">
           <span className="modelR-presentation__span">Build your</span>
@@ -38,7 +38,7 @@ const CarPresentation = ({history}) => {
             Model <span className="modelR-presentation__logo-r">R</span>
           </h1>
         </div>
-        <img className="modelR-presentation__car-image" src={carImage} alt="red Model R" />
+        <img onLoad={() => setLoaded(true)} className="modelR-presentation__car-image" src={carImage} alt="red Model R" />
         <div className="modelR-presentation__button-container">
           <IconButtonOne icon="arrow" text="begin" click={() => history.push('/modelR/builder') } />
         </div>

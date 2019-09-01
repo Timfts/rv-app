@@ -3,6 +3,7 @@ import {BuilderContext} from '../context/builderContext';
 import ChoicesTable from "../ChoicesTable";
 import { IconButtonOne } from '../../common/Button';
 import {withRouter} from 'react-router-dom';
+import { Img } from '../../common/Img';
 
 const BuilderFinish = withRouter(() => {
   const {selectedColor, nextStep} = useContext(BuilderContext);
@@ -11,7 +12,7 @@ const BuilderFinish = withRouter(() => {
   return (
     <div className="end-section">
       <div className="end-section__image-container">
-        <img className="end-section__image" src={selectedColor.model.finishImage} alt="final state car" />
+        <Img className="end-section__image" src={selectedColor.model.finishImage} alt="final state car" />
       </div>
       <div className="end-section__stats">
         <h1 className="end-section__title title">

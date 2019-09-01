@@ -1,6 +1,7 @@
 import React, { useContext, useEffect } from "react";
 import ColorPicker from "../ColorPicker";
 import { BuilderContext } from "../context/builderContext";
+import { Img } from '../../common/Img';
 
 const ColorSection = () => {
   const { selectedColor, color, visited } = useContext(BuilderContext);
@@ -17,7 +18,7 @@ const ColorSection = () => {
         <p className="color-section__color-presentation">{color.description}</p>
       </div>
       <div className="color-section__image-container">
-        <img
+        <Img
           className="color-section__car-image"
           src={selectedColor.model.demo}
         />
