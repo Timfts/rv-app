@@ -18,9 +18,7 @@ const EngineItem = ({ itemData, selectedEngine, callback }) => {
   )
 };
 
-const EngineSelector = () => {
-  const { engine, selectedEngine, setItem } = useContext(BuilderContext);
-
+const EngineSelector = ({engine, selectedEngine, setItem}) => {
   function changeEngine(newEngine){
     setItem('engine', newEngine);
   }

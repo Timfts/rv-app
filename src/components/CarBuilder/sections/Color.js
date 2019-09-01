@@ -1,9 +1,14 @@
-import React, { useContext } from "react";
+import React, { useContext, useEffect } from "react";
 import ColorPicker from "../ColorPicker";
 import { BuilderContext } from "../context/builderContext";
 
 const ColorSection = () => {
-  const { selectedColor, color } = useContext(BuilderContext);
+  const { selectedColor, color, visited } = useContext(BuilderContext);
+
+  useEffect(() => {
+    visited('color');
+  } ,[])
+
 
   return (
     <section className="color-section">
@@ -12,16 +17,22 @@ const ColorSection = () => {
         <p className="color-section__color-presentation">{color.description}</p>
       </div>
       <div className="color-section__image-container">
-        <img className="color-section__car-image" src={selectedColor.model.demo} />
+        <img
+          className="color-section__car-image"
+          src={selectedColor.model.demo}
+        />
         <div className="color-section__color-infos">
           <span className="color-section__color-name">
             {selectedColor.model.label}
           </span>
-          {selectedColor.model.price === 0 ? (
-            <span className="color-section__color-included">Included</span>
-          ) : (
-            ""
-          )}
+
+          <span
+            className={`color-section__color-included ${
+              selectedColor.model.price === 0 ? "" : "hide"
+            }`}
+          >
+            Included
+          </span>
         </div>
       </div>
       <ColorPicker />

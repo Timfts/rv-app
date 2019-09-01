@@ -53,12 +53,23 @@ const BuilderProvider = props => {
   }
 
   function visited(item) {
-    console.log(item);
     switch (item) {
       case "engine":
         dispatch({
           type: "VISITED_ENGINE"
         });
+        break;
+      case "color":
+        console.log("random")
+        dispatch({
+          type: "VISITED_COLOR"
+        });
+        break;
+      case "wheels":
+        dispatch({
+          type: "VISITED_WHEELS"
+        });
+        break;
     }
   }
 
@@ -84,16 +95,16 @@ const BuilderProvider = props => {
     return totalPrice - currentItemPrice + newItemPrice;
   }
 
-  function nextStep(){
+  function nextStep() {
     const currentStep = state.step;
-    if(currentStep === 4){
+    if (currentStep === 4) {
       dispatch({
-        type: 'RESET_BUILDER'
-      })
+        type: "RESET_BUILDER"
+      });
     }
     dispatch({
-      type: 'NEXT_STEP'
-    })
+      type: "NEXT_STEP"
+    });
   }
 
   function setItem(itemType, value) {

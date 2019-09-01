@@ -1,5 +1,4 @@
 .color-picker {
-    margin-top:-20%;
     display:flex;
     flex-wrap: none;
     justify-content: space-between;
@@ -7,11 +6,18 @@
     padding-right:60px;
     height:80px;
     overflow:hidden;
+    position:relative;
+    bottom:200px;
+
+    @include respond(tab-land){
+        bottom:150px;
+    }
 
     @include respond(tab-port){
         margin-top:0;
         padding-right:0;
         padding:50px 10%;
+        position:static;
     }
 
     &__ball {

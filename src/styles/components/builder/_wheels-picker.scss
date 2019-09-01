@@ -1,0 +1,118 @@
+.wheels-picker {
+  @include respond(tab-port) {
+    overflow: hidden;
+    position: absolute;
+    padding:20px 0;
+    left: 0;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 100%;
+    overflow-x: scroll;
+    -webkit-overflow-scrolling: touch;
+    -ms-overflow-style: -ms-autohiding-scrollbar;
+
+    &::-webkit-scrollbar {
+      display: none;
+    } 
+  }
+  &__wheels-container {
+    display: flex;
+    justify-content: space-between;
+    padding: 0 5%;
+    align-items: center;
+
+    @include respond(tab-port) {
+        display:inline-flex;
+        padding:0 calc(50vw - 90px);
+/*         padding:0;
+        width:auto;
+        padding:0 calc(50vw - 90px);
+ */
+ 
+    }
+  }
+
+  &__wheel {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    cursor: pointer;
+    font-size:22px;
+
+    &:hover {
+      & .wheels-picker__wheel-image-container {
+        transform: scale(1.15);
+        &::after {
+          opacity: 0;
+        }
+      }
+    }
+
+    @include respond(tab-port) {
+      margin: 0 30px;
+      font-size:18px;
+    }
+  }
+
+  &__wheel-image-container {
+    width: 225px;
+    position: relative;
+    transition: all 0.4s ease-out;
+    margin-bottom:15px;
+
+    &::after {
+      display: block;
+      content: "";
+      width: 100%;
+      height: 100%;
+      position: absolute;
+      top: 0;
+      left: 0;
+      background-color: rgba($c-white, 0.8);
+      transition: all 0.4s ease-in;
+    }
+
+    @include respond(wider) {
+      width: 200px;
+    }
+
+    @include respond(tab-land) {
+      width: 180px;
+    }
+
+    @include respond(tab-port) {
+      width: 140px;
+    }
+  }
+
+  &__wheel-image {
+    width: 100%;
+  }
+
+  &__wheel-label {
+  }
+
+  &__wheel-included {
+      color:$c-main-red;
+  }
+
+  &__wheel--active {
+    &:hover {
+      & .wheels-picker__wheel-image-container {
+        &::after {
+          opacity: 1;
+        }
+      }
+    }
+    & .wheels-picker__wheel-image-container {
+      transform: scale(1.15);
+
+      &::after {
+        display: none;
+      }
+    }
+
+    @include respond(tab-port) {
+    }
+  }
+}

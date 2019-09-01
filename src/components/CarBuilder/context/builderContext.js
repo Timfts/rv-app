@@ -46,6 +46,16 @@ export function builderReducer(state, action) {
         ...state,
         selectedEngine: { ...state.selectedEngine, visited: true }
       };
+    case "VISITED_COLOR":
+      return {
+        ...state,
+        selectedColor: { ...state.selectedColor, visited: true }
+      };
+    case "VISITED_WHEELS":
+      return {
+        ...state,
+        selectedWheels: { ...state.selectedWheels, visited: true }
+      };
     case "SET_ENGINE":
       return {
         ...state,
@@ -64,11 +74,11 @@ export function builderReducer(state, action) {
         selectedWheels: { model: action.payload.wheels, visited: true },
         total: action.payload.newPrice
       };
-      case "NEXT_STEP":
-        return {
-          ...state,
-          step: state.step + 1
-        }
+    case "NEXT_STEP":
+      return {
+        ...state,
+        step: state.step + 1
+      };
     default:
       return state;
   }

@@ -4,7 +4,7 @@ import EngineSelector from '../EngineSelector';
 
 
 const EngineSection = () => {
-    const { visited, engine, selectedEngine, loading } = useContext(BuilderContext);
+    const { visited, engine, selectedEngine, loading, setItem } = useContext(BuilderContext);
     useEffect(() => {
         visited('engine');
     },[]);
@@ -15,7 +15,7 @@ const EngineSection = () => {
             </div>
             <div className="engine-section__selector-container">
                 <h1 className="engine-section__title title">Engine</h1>
-                <EngineSelector />
+                <EngineSelector engine={engine} selectedEngine={selectedEngine} setItem={setItem} />
             </div>
         </section>
     );

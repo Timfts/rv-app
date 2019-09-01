@@ -1,0 +1,21 @@
+.wheels-section {
+    &__title {
+        text-align: center;
+
+        @include respond(tab-port){
+            text-align: left;
+        }
+    }
+
+    &__picker-container {
+        padding-top:80px;
+
+        @include respond(wider){
+            padding-top:50px;
+        }
+        @include respond(tab-port){
+            padding-top:40px;
+        }
+    }
+
+}
