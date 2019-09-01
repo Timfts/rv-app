@@ -18,7 +18,7 @@ const IconButtonOne = ({ text, icon, click }) => {
   return (
     <button className="button arrow-button-one" onClick={click}>
       <span className="arrow-button-one__text">{text}</span>
-      <img src={chooseIcon()} alt="arrow" />
+      <img src={chooseIcon()} className='arrow-button-one__arrow' alt="arrow" />
     </button>
   );
 };

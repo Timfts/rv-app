@@ -8,6 +8,8 @@ import {
 } from "./sections";
 import BuilderProvider from "./context/BuilderProvider";
 import { BuilderContext } from "./context/builderContext";
+import { CSSTransition, TransitionGroup } from "react-transition-group";
+import { Loading } from '../common/Loading';
 
 const CarBuilderInner = () => {
   const {
@@ -29,23 +31,66 @@ const CarBuilderInner = () => {
 
   return (
     <div className="car-builder">
-      {loading ? <p>loading</p> : ""}
-      {initialPrice
-        ? (() => {
-            switch (step) {
-              case 1:
-                return <EngineSection />;
-              case 2:
-                return <ColorSection />;
-              case 3:
-                return <WheelsSection />;
-              case 4:
-                return <BuilderFinish />;
-              default:
-                return "";
-            }
-          })()
-        : ""}
+      {loading ? <Loading /> : ""}
+      <TransitionGroup component={null}>
+        {initialPrice
+          ? (() => {
+              switch (step) {
+                case 1:
+                  return (
+                    <CSSTransition
+                      key={`1`}
+                      timeout={1000}
+                      classNames="my-node"
+                    >
+                      <div>
+                        <EngineSection />
+                      </div>
+                    </CSSTransition>
+                  );
+                case 2:
+                  return (
+                    <CSSTransition
+                      key={`2`}
+                      timeout={1000}
+                      classNames="my-node"
+                    >
+                      <div>
+                        <ColorSection />
+                      </div>
+                    </CSSTransition>
+                  );
+                case 3:
+                  return (
+                    <CSSTransition
+                      key={`3`}
+                      timeout={1000}
+                      classNames="my-node"
+                    >
+                      <div>
+                        <WheelsSection />
+                      </div>
+                    </CSSTransition>
+                  );
+                case 4:
+                  return (
+                    <CSSTransition
+                      key={`4`}
+                      timeout={1000}
+                      classNames="my-node"
+                    >
+                      <div>
+                        <BuilderFinish />
+                      </div>
+                    </CSSTransition>
+                  );
+                default:
+                  return "";
+              }
+            })()
+          : ""}
+      </TransitionGroup>
+
       <BuilderFooter />
     </div>
   );

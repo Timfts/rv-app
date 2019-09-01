@@ -1,9 +1,10 @@
 import React from 'react';
 
-
 const CommingSoon = () => {
     return (
-        <p>Soon</p>
+        <section className="coming-soon-page">
+            <h2 className="coming-soon-page__text">Coming soon</h2>
+        </section>
     );
 };
 

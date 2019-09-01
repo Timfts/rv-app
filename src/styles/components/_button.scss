@@ -28,6 +28,11 @@
   }
   &__arrow {
     width: 20.61px;
+    transition:all .2s;
+  }
+
+  &:hover &__arrow{
+    transform:translateX(5px);
   }
 }
 

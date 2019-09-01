@@ -8,6 +8,7 @@
 
 @import './components/button';
 @import './components/info-block';
+@import './components/loading';
 @import './components/modelR-presentation';
 
 @import './components/builder/car-builder';
@@ -16,3 +17,5 @@
 @import "./layout/navigation";
 
 @import "./pages/modelR";
+@import "./pages/soon";
+@import "./pages/404";

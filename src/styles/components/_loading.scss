@@ -1,0 +1,20 @@
+.loading {
+    width:100%;
+    height:100vh;
+    position: fixed;
+    top:0;
+    left:0;
+    background-color:rgba($c-white, .8);
+    z-index:100;
+    display:flex;
+    align-items: center;
+    justify-content: center;
+
+    &__icon{
+        width:200px;
+        stroke:$c-main-red;
+        stroke-dasharray: 900;
+        stroke-dashoffset: 900;
+        animation: path .5s ease infinite;
+    }
+}

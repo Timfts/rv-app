@@ -1,0 +1,12 @@
+.not-found-page {
+    @include layoutPadding;
+    display:flex;
+    justify-content: center;
+    align-items: center;
+    height:50vh;
+
+    &__text {
+        font-size:30px;
+        font-weight: 500;
+    }
+}
