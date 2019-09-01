@@ -1,0 +1,67 @@
+.stats-table {
+  width: 100%;
+  border-collapse: collapse;
+
+  &__body {
+    font-size: 22px;
+    color: $c-main-blue;
+
+    @include respond(wider){
+        font-size:20px;
+    }
+
+    @include respond(tab-port) {
+      font-size: 18px;
+    }
+  }
+
+  &__entry {
+    & td {
+      padding: 15px 0;
+    }
+    &--first {
+      & td {
+        padding-top: 30px;
+      }
+    }
+
+    &--last {
+      & td {
+        padding-bottom: 30px;
+      }
+    }
+  }
+
+  &__label {
+  }
+
+  &__value {
+    color: $c-main-red;
+    text-align: right;
+  }
+
+  &__entry--starting-price {
+    border-bottom: 1px solid $c-grey-separator;
+    & td {
+      padding: 25px 0;
+    }
+  }
+
+  &__entry--total {
+    border-top: 1px solid $c-grey-separator;
+    & td {
+      padding: 25px 0;
+      font-size: 32px;
+      @include respond(wider){
+          font-size:29px;
+      }
+      @include respond(tab-port){
+          font-size:26px;
+      }
+    }
+
+    &__value {
+      font-weight: 500;
+    }
+  }
+}

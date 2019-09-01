@@ -1,11 +1,12 @@
 import React, { useReducer } from "react";
 import { BuilderContext, builderReducer, initialState } from "./builderContext";
+import { withRouter } from "react-router-dom";
 import { fetchApi } from "../../../core/apiService";
 import { colorArray } from "../../../core/colors";
 import { engineArray } from "../../../core/engines";
 import { wheelsArray } from "../../../core/wheels";
 
-const BuilderProvider = props => {
+const BuilderProvider = withRouter(props => {
   const [state, dispatch] = useReducer(builderReducer, initialState);
 
   function showLoading() {
@@ -20,8 +21,6 @@ const BuilderProvider = props => {
     });
   }
 
-  //recive the engines, colors, wheels and relates to the images
-  // the connection could be an id, label or etc
   function mapItemImages(baseElement, connection, imagesArray) {
     const originalItems = baseElement.items;
     const newItemsList = originalItems.map((item, index) => {
@@ -60,7 +59,6 @@ const BuilderProvider = props => {
         });
         break;
       case "color":
-        console.log("random")
         dispatch({
           type: "VISITED_COLOR"
         });
@@ -69,6 +67,8 @@ const BuilderProvider = props => {
         dispatch({
           type: "VISITED_WHEELS"
         });
+        break;
+      default:
         break;
     }
   }
@@ -91,20 +91,18 @@ const BuilderProvider = props => {
         break;
     }
 
-    console.log(totalPrice, currentItemPrice, newItemPrice);
     return totalPrice - currentItemPrice + newItemPrice;
   }
 
   function nextStep() {
     const currentStep = state.step;
     if (currentStep === 4) {
+      props.history.push("/modelR");
+    } else {
       dispatch({
-        type: "RESET_BUILDER"
+        type: "NEXT_STEP"
       });
     }
-    dispatch({
-      type: "NEXT_STEP"
-    });
   }
 
   function setItem(itemType, value) {
@@ -145,9 +143,10 @@ const BuilderProvider = props => {
           });
         }
         break;
+      default:
+        break;
     }
 
-    //if current value == state value don't do nothing
   }
 
   return (
@@ -164,6 +163,6 @@ const BuilderProvider = props => {
       {...props}
     />
   );
-};
+});
 
 export default BuilderProvider;

@@ -2,7 +2,7 @@ import React from "react";
 import CarBuilder from "../components/CarBuilder/CarBuilder";
 import { Switch, Route } from "react-router-dom";
 import carImage from "../images/car-home.png";
-import { ArrowButtonOne } from "../components/common/Button";
+import { IconButtonOne } from "../components/common/Button";
 
 const CarPresentation = ({history}) => {
   const carInfos = [
@@ -31,15 +31,15 @@ const CarPresentation = ({history}) => {
             Model <span className="modelR-presentation__logo-r">R</span>
           </h1>
         </div>
-        <img className="modelR-presentation__car-image" src={carImage} />
+        <img className="modelR-presentation__car-image" src={carImage} alt="red Model R" />
         <div className="modelR-presentation__button-container">
-          <ArrowButtonOne text="begin" click={() => history.push('/modelR/builder') } />
+          <IconButtonOne icon="arrow" text="begin" click={() => history.push('/modelR/builder') } />
         </div>
       </div>
       <div className="modelR-info">
         {carInfos.map((item, index) => {
           return (
-            <div className="info-block">
+            <div className="info-block" key={`car-info-${index}`}>
               <span className="info-block__value">
                 {item.value}{" "}
                 <span className="info-block__measure">{item.measure}</span>

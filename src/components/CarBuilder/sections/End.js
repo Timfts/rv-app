@@ -1,11 +1,17 @@
-import React from "react";
+import React, {useContext} from "react";
+import {BuilderContext} from '../context/builderContext';
 import ChoicesTable from "../ChoicesTable";
+import { IconButtonOne } from '../../common/Button';
+import {withRouter} from 'react-router-dom';
 
-const BuilderFinish = () => {
+const BuilderFinish = withRouter(() => {
+  const {selectedColor, nextStep} = useContext(BuilderContext);
+
+
   return (
     <div className="end-section">
       <div className="end-section__image-container">
-        <img className="end-section__image" />
+        <img className="end-section__image" src={selectedColor.model.finishImage} alt="final state car" />
       </div>
       <div className="end-section__stats">
         <h1 className="end-section__title title">
@@ -15,9 +21,12 @@ const BuilderFinish = () => {
           </span>
         </h1>
         <ChoicesTable />
+        <div className="end-section__rebuild">
+          <IconButtonOne text="Rebuild" icon="reload" click={nextStep} />
+        </div>
       </div>
     </div>
   );
-};
+});
 
 export default BuilderFinish;

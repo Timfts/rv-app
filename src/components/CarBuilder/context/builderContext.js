@@ -1,4 +1,4 @@
-import React, { createContext } from "react";
+import { createContext } from "react";
 
 export const initialState = {
   loading: null,
@@ -7,7 +7,6 @@ export const initialState = {
   wheels: null,
   initialPrice: null,
   step: 1,
-  finished: null,
   total: null,
   selectedEngine: null,
   selectedColor: null,

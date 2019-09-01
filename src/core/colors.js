@@ -8,7 +8,7 @@ import blackDemo from '../images/color/demo-black.png';
 
 import redFinish from '../images/color/finish-red.png';
 import blueFinish from '../images/color/finish-blue.png';
-import blackFinish from '../images/color/finish-red.png';
+import blackFinish from '../images/color/finish-black.png';
 
 
 export const red = {

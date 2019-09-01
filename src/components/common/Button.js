@@ -1,17 +1,29 @@
 import React from "react";
 import PropTypes from "prop-types";
 import arrow from "../../images/arrow.svg";
+import reload from "../../images/reload.svg";
 
-const ArrowButtonOne = ({ text, direction, click }) => {
+const IconButtonOne = ({ text, icon, click }) => {
+  function chooseIcon(){
+    switch(icon){
+      case 'arrow':
+        return arrow;
+      case 'reload':
+        return reload;
+      default:
+        return '';
+    }
+  }
+
   return (
     <button className="button arrow-button-one" onClick={click}>
       <span className="arrow-button-one__text">{text}</span>
-      <img src={arrow} alt="arrow" />
+      <img src={chooseIcon()} alt="arrow" />
     </button>
   );
 };
 
-ArrowButtonOne.propTypes = {
+IconButtonOne.propTypes = {
   text: PropTypes.string.isRequired,
   direction: PropTypes.string
 };
@@ -30,4 +42,4 @@ ArrowButtonTwo.propTypes = {
   direction: PropTypes.string
 };
 
-export { ArrowButtonOne, ArrowButtonTwo };
+export { IconButtonOne, ArrowButtonTwo };

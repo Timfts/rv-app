@@ -1,27 +1,65 @@
 .end-section {
-    display:flex;
+  display: flex;
+  position: relative;
+  @include respond(tab-port) {
+    flex-direction: column;
+  }
 
+  &__image-container {
+    width: 60%;
+    position: relative;
+    @include respond(tab-port) {
+      width: 100%;
+      padding-top: 80px;
+      padding-bottom:30px;
+    }
+  }
 
+  &__image {
+    width: 60%;
+    position: absolute;
+    left: 0;
+    top: 50%;
+    transform: translateY(-50%);
+    display: inline-block;
 
-
-    &__image-container {
-        width:60%;
+    @include respond(tab-port) {
+      position: static;
+      width: 60%;
+      transform: translateY(0);
     }
 
-    &__image {
-
+    @include respond(phone) {
+      width: 90%;
     }
+  }
 
-    &__stats {
-        width:39%;
-
+  &__stats {
+    width: 39%;
+    @include respond(tab-port) {
+      width: 100%;
     }
+  }
 
-    &__title {
-
+  &__title {
+    @include respond(tab-port) {
+      position: absolute;
+      top: 0;
+      left: 0;
     }
+  }
 
-    &__title-mode {
-
+  &__title-model {
+    font-weight: 500;
+    & span {
+      color: $c-main-red;
     }
+  }
+
+  &__rebuild {
+      display:flex;
+      justify-content: center;
+      align-items: center;
+      padding:30px 0;
+  }
 }

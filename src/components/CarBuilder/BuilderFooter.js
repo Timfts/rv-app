@@ -52,6 +52,7 @@ const BuilderFooter = () => {
               <img
                 className="builder-footer__color-choice-image"
                 src={selectedColor.model.picker}
+                alt={`selected color: ${selectedColor.model.label}`}
               />
             </div>
           ) : (
@@ -66,6 +67,7 @@ const BuilderFooter = () => {
               <img
                 className="builder-footer__wheel-choice-image"
                 src={selectedWheels.model.image}
+                alt={`selected wheels: ${selectedWheels.model.label}`}
               />
             </div>
           ) : (
