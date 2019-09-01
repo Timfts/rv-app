@@ -1,8 +1,9 @@
-import React from "react";
+import React, { useState} from "react";
 import CarBuilder from "../components/CarBuilder/CarBuilder";
 import { Switch, Route } from "react-router-dom";
 import carImage from "../images/car-home.png";
 import { IconButtonOne } from "../components/common/Button";
+import { Loading } from '../components/common/Loading';
 
 const CarPresentation = ({history}) => {
   const carInfos = [
@@ -22,8 +23,14 @@ const CarPresentation = ({history}) => {
       desc: "Max speed"
     }
   ];
+
+  const [loaded, setLoaded] = useState(false);
   return (
-    <section className="modelR-page">
+    <>
+    {
+      !loaded ? <Loading /> : ''
+    }
+    <section className="modelR-page" onLoad={() => setLoaded(true)}>
       <div className="modelR-presentation">
         <div className="modelR-presentation__text">
           <span className="modelR-presentation__span">Build your</span>
@@ -50,6 +57,7 @@ const CarPresentation = ({history}) => {
         })}
       </div>
     </section>
+    </>
   );
 };
 
